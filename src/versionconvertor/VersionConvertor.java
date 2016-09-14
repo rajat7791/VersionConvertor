@@ -33,5 +33,14 @@ public class VersionConvertor {
         System.out.println("Version: " + version + " | LongValue: " + result);
         return result;
     }
+    
+    public static String longValueToVersion(long versionNum) {
+        String result = ((versionNum >> 16) & 0xFF) + "."
+                + ((versionNum >> 8) & 0xFF) + "."
+                + (versionNum & 0xFF);
+
+        System.out.println("LongValue: " + versionNum + " | Version: " + result);
+        return result;
+    }
 
 }
