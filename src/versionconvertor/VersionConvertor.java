@@ -10,7 +10,13 @@ public class VersionConvertor {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        //calling versionToLong method
+        versionToLong("1.4.4");
+        
+        //calling longValueToVersion method
+        longValueToVersion(66307);
+        
     }
 
     public static long versionToLong(String version) {
