@@ -9,20 +9,23 @@ public class VersionConvertor {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        
+    public static void main(String[] args) throws Exception{
+
         //calling versionToLong method
-        versionToLong("1.4.4");
-        
+        versionToLong("0.0.1");
+
         //calling longValueToVersion method
         longValueToVersion(66307);
-        
+
     }
 
-    public static long versionToLong(String version) {
+    public static long versionToLong(String version) throws Exception{
         /**
          * Version must be '1.2.3' format means 2 dot exactly
          */
+        if(version == null){
+            throw new Exception("NULL version passed in versionToLong method");
+        }
         long result = 0;
         String[] versionArr = version.split("\\.");
         if (versionArr.length != 3) {
@@ -39,7 +42,7 @@ public class VersionConvertor {
         System.out.println("Version: " + version + " | LongValue: " + result);
         return result;
     }
-    
+
     public static String longValueToVersion(long versionNum) {
         String result = ((versionNum >> 16) & 0xFF) + "."
                 + ((versionNum >> 8) & 0xFF) + "."
